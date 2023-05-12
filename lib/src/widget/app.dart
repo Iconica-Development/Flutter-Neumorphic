@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
 class NeumorphicApp extends StatelessWidget {
@@ -84,15 +83,15 @@ class NeumorphicApp extends StatelessWidget {
       );
     }
 
-    return ThemeData(
-      primaryColor: theme.accentColor,
-      accentColor: theme.variantColor,
+    var themeData = ThemeData();
+
+    return themeData.copyWith(
+      colorScheme: themeData.colorScheme.copyWith(
+        primary: theme.accentColor,
+        secondary: theme.variantColor,
+      ),
       iconTheme: theme.iconTheme,
       brightness: ThemeData.estimateBrightnessForColor(theme.baseColor),
-      primaryColorBrightness:
-          ThemeData.estimateBrightnessForColor(theme.accentColor),
-      accentColorBrightness:
-          ThemeData.estimateBrightnessForColor(theme.variantColor),
       textTheme: theme.textTheme,
       scaffoldBackgroundColor: theme.baseColor,
     );
